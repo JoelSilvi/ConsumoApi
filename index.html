@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <label for="name">Nombre</label>
+  <input type="text" id="name" placeholder="Nombre">
+  <label for="lastName">Apellido</label>
+  <input type="text" id="lastName" placeholder="Apellido">
+  <label for="age">Edad</label>
+  <input type="text" id="age" placeholder="Edad">
+  <button id="mostrar">MOSTRAR</button>
+
+
+  <script>
+
+    const d = document
+    const btnMostrar = d.getElementById("mostrar")
+
+    const limpiar = (name, last, age) => {
+      name = d.getElementById("name")
+      last = d.getElementById("lastName")
+      age = d.getElementById("age")
+      name.value = ""
+      last.value = ""
+      age.value = ""
+      name.focus()
+    }
+
+    const alumnos = (name, last, age) => {
+      name = d.getElementById("name").value
+      last = d.getElementById("lastName").value
+      age = d.getElementById("age").value
+      $alumno = d.createElement("h2")
+      d.body.appendChild($alumno)
+      $alumno.innerHTML = `
+        ${name} ${last} ${age}
+      
+      `
+    }
+
+    btnMostrar.addEventListener("click", alumnos, true)
+    btnMostrar.addEventListener("click", limpiar, true)
+
+
+    const perro = {
+      name: "you",
+      age: 20,
+      tails: 1,
+      propietario: "joel",
+    }
+
+    perro.name = "Sam"
+    perro["name"] = "Juan"
+    perro.patas = 4
+    perro["dedos"] = 5
+    console.log(perro.name)
+
+    console.log(Object.values(perro))
+
+
+
+  </script>
+</body>
+
+</html>

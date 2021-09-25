@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+
+  <section id="dato"></section>
+
+  <script>
+
+    // const conteo = (a) => {
+    // if (a < 0) return // console.log(a) // return conteo(a - 1) // } // conteo(20) const axios=require("axios") const
+
+
+
+    llamarAPI = async (url, llamados = 0) => {
+      try {
+        const result = await axios.get(url)
+
+        let recorriendo = result.data
+
+
+
+        for (recorre of recorriendo) {
+
+
+          let $datos = document.createElement("h2")
+          document.body.appendChild($datos)
+          $datos.innerHTML =
+            `
+
+            el código es: ${recorre.id}- 
+            el nombre es: ${recorre.name} - 
+            el usuario es: ${recorre.username} - 
+            el correo es: ${recorre.email} - 
+            la ciudad es : ${recorre.address.city} -
+            la calle es : ${recorre.address.street} -
+            la suite es : ${recorre.address.suite} -
+
+            
+
+          `
+          console.log(recorre)
+        }
+
+
+        // const id = result(status)
+
+        // const dato = result
+
+        // const info = dato.data
+        // for (x = 0; x < info.lenght; x++) {
+        //   console.log(dato.data[x])
+        // }
+
+
+
+        console.log(recorriendo)
+        // console.log(info)
+        return result
+      } catch (e) {
+        if (llamados > 5) {
+          return ""
+        }
+
+        console.log(e)
+        return llamarAPI(url, llamados + 1)
+      }
+    }
+
+    llamarAPI("https://jsonplaceholder.typicode.com/users")
+
+
+  </script>
+
+
+
+</body>
+
+</html>

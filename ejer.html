@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<label for="altura">Escriba Altura en centímetros</label>
+<input type="text" name="altura" id="altura">
+<label for="edad">Escriba Edad</label>
+<input type="text" name="edad" id="edad">
+<button id="enviar">Enviar</button>
+<button id="terminar">Terminar</button>
+
+<body>
+  <script>
+    const d = document
+    let aceptado = 0
+    let rechazado = 0
+    const btnEnviar = d.getElementById("enviar")
+    const btnTerminar = d.getElementById("terminar")
+
+    const limpiar = (altura, age) => {
+      altura = d.getElementById("altura")
+      age = d.getElementById("edad")
+      altura.value = ""
+      age.value = ""
+      altura.focus()
+    }
+
+    const validacion = (altura, edad) => {
+      altura = Number(d.getElementById("altura").value)
+      edad = Number(d.getElementById("edad").value)
+
+      if (altura > 170 && edad > 18) {
+        aceptado++;
+      } else {
+        rechazado++
+      }
+    }
+
+    btnEnviar.addEventListener("click", validacion, true)
+    btnEnviar.addEventListener("click", limpiar, true)
+
+    const terminar = () => {
+      let $resutado = d.createElement("h2")
+      d.body.appendChild($resutado)
+      $resutado.innerHTML =
+        `
+        <i>La cantidad de aceptados es ${aceptado}</i>
+        <i>La cantidad de rechazados es ${rechazado}</i>
+      `
+    }
+
+    btnTerminar.addEventListener("click", terminar, true)
+
+  </script>
+</body>
+
+</html>
