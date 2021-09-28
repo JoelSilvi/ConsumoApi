@@ -13,21 +13,23 @@
 
   <script>
 
-    const ALUMNO = {
-      nombre: "Juan",
-      apellido: "Diaz",
-      edad: 33,
-      updateName(okName) {
-        this.nombre = okName
+    class Estaciones {
+      constructor(EstacionElegida) {
+        this.EstacionElegida = EstacionElegida
       }
     }
+    const elegida = new Estaciones("Invierno")
 
-    ALUMNO.updateName("Camilo")
-    console.log(ALUMNO.nombre)
+    console.log(elegida)
+    console.log(elegida.EstacionElegida)
 
+    const soloNombre = elegida.EstacionElegida
+
+    console.log(soloNombre)
 
 
   </script>
+
 </body>
 
 </html>
