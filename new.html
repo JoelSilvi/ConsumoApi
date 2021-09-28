@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+  <script>
+
+
+    const llamarAPI = async (url, llamados = 0) => {
+      try {
+        const { data } = await axios.get(url)
+
+        const axios = require('axios')
+
+        return data
+
+
+      } catch (e) {
+        if (llamados > 5) {
+          return ""
+        }
+
+        console.log(e)
+        return llamarAPI(url, llamados + 1)
+      }
+    }
+
+    llamarAPI("https://jsonplaceholder.typicode.com/users")
+
+
+  </script>
+
+
+
+</body>
+
+</html>
