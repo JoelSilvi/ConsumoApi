@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+
+
+    const animal = {
+      nombre: "you",
+      edad: 32,
+      raza: "quiltro"
+    }
+
+    animal.altura = 45
+    animal.fecha = "12-05-2021"
+    animal["color de pelo"] = "blanco y negro"
+
+    const eyes = "color"
+
+    animal[eyes] = "red"
+
+    delete animal.fecha
+    delete animal.color
+
+
+    console.log(animal)
+
+
+
+    const usuarios = {
+      Joel: {
+        apellido: "Aguilar",
+        edad: 32
+      },
+      Jorge: {
+        edad: 30,
+        apellido: "Zuniga"
+      },
+      Rosa: {
+        apellido: "Silvi",
+        edad: 50
+      }
+    }
+
+
+    const hasOwn = usuarios.hasOwnProperty("Joel", "Jorge")
+    // const conIN = "Joel" in usuarios
+
+    console.log(hasOwn)
+    // console.log(conIN)
+
+    for (let user in usuarios) {
+      console.log(user)
+    }
+
+
+  </script>
+</body>
+
+</html>

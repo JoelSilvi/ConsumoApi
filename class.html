@@ -28,6 +28,40 @@
     console.log(soloNombre)
 
 
+
+
+    class Vegetal {
+      constructor(Name) {
+        this.Name = Name
+      }
+    }
+
+    const NombreVegetal = new Vegetal("Carrot")
+
+    const ValorVegetal = NombreVegetal.Name
+
+
+
+
+    $vegetal = document.createElement("h2")
+    document.body.appendChild($vegetal)
+    $vegetal.innerHTML =
+
+      ` 
+    EL VEGETAL ELEGIDO ES ${ValorVegetal}
+    
+    
+    `
+
+
+    let num
+
+    const numeroAletorio = () => {
+      return Math.random(Number(num))
+    }
+
+
+
   </script>
 
 </body>
