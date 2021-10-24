@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS API</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+
+    const API_URL = "https://jsonplaceholder.typicode.com"
+
+    // API DE FETCH *****************************************
+
+    const d = document
+    const HTMLResponse = d.querySelector("#app")
+    const ul = d.createElement("ul")
+
+    fetch(`${API_URL}/users`)
+      .then((response) => response.json())
+      .then((users) => {
+        users.forEach(user => {
+          let elem = d.createElement("li")
+          elem.appendChild(
+            d.createTextNode(`${user.name} ---- ${user.email}`)
+          )
+          ul.appendChild(elem)
+        });
+
+        HTMLResponse.appendChild(ul)
+      })
+
+
+
+
+
+
+    // const xhr = new XMLHttpRequest()
+    // function manejadorPeticion() {
+    //   if (this.readyState === 4 && this.status === 200) {
+    //     0 = UNSET, no se ha llamado al método open
+    //     1 = OPENED, se ha llamado al método open
+    //     2 = HEADERS_RECEIVED, se está llamando al método send()
+    //     3 = LOADING, está recibiendo la respuesta
+    //     4 = DONE, se ha completado la operación
+    //     const data = JSON.parse(this.response)
+    //     console.log(data)
+    //     const HTMLResponse = document.querySelector("#app")
+    //     const template = data.map((user) => `<li>${user.name}  ${user.email}</li>`)
+    //     HTMLResponse.innerHTML = `<ul>${template}</ul>`
+    //   }
+    // }
+
+    // xhr.addEventListener("load", manejadorPeticion)
+    // xhr.open("GET", `${API_URL}/users`)
+    // xhr.send()
+
+
+
+
+
+  </script>
+</body>
+
+</html>
