@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creando objetos desde constructores</title>
+</head>
+
+<body>
+
+
+  <div class="container"></div>
+
+  <script>
+
+    function Hijo() {
+      this.name = "Misael",
+        this.apellido = "Aguilar",
+        this.edad = 9
+    }
+
+    let primerHijo = new Hijo()
+    console.log(primerHijo)
+
+    primerHijo.edad = 10
+    console.log(primerHijo)
+
+
+    function Dog(name, edad) {
+      this.name = name,
+        this.edad = edad,
+        this.numLegs = 4
+    }
+
+    Dog.prototype.pelo = "Gris"
+
+
+    let firstDog = new Dog("You", 10)
+    let secondDog = new Dog("Sam", 9)
+    let threeDog = new Dog("Piduco", 8)
+
+    console.log(firstDog.pelo)
+
+    console.log(firstDog)
+    console.log(secondDog)
+    console.log(threeDog)
+    console.log("*******************************")
+    let verificacionInstanciaDog = firstDog instanceof Dog
+    console.log(verificacionInstanciaDog)
+    console.log("*******************************")
+    console.log("*******************************")
+
+    let Cat = function (name, color) {
+      this.name = name,
+        this.color = color,
+        this.numEars = 2
+    }
+
+    let firstCat = new Cat("miau", "red")
+    let secondCat = new Cat("rol", "blue")
+    let threeCat = new Cat("carl", "green")
+
+    console.log(firstCat)
+    console.log(secondCat)
+    console.log(threeCat)
+    console.log("*******************************")
+    console.log("*******************************")
+
+    let verificacionInstanciaCat = secondCat instanceof Cat
+    console.log(verificacionInstanciaCat)
+
+    verificacionInstanciaCat = firstDog instanceof Cat
+    console.log(verificacionInstanciaCat)
+
+
+    let Aves = function (name) {
+      this.name = name,
+        this.color = "blue",
+        this.eyes = "red",
+        this.numLegs = 9
+    }
+
+    Aves.prototype.alas = 2
+
+
+    let gorrion = new Aves("Golon")
+    let ownProper = []
+    let prototypeProps = []
+
+    for (let propiedad in gorrion) {
+      if (gorrion.hasOwnProperty(propiedad)) {
+        ownProper.push(propiedad)
+      } else {
+        prototypeProps.push(propiedad)
+      }
+    }
+
+    console.log("***********************")
+    console.log("***********************")
+    console.log(ownProper)
+    console.log(prototypeProps)
+
+    console.log("***********************")
+    console.log("***********************")
+
+    console.log(gorrion.constructor === Aves)
+
+
+    let d = document
+    let $container = d.querySelector(".container")
+    let $nombreAve = d.createElement("h3")
+    $container.appendChild($nombreAve)
+    $nombreAve.innerHTML = gorrion.name + " " + gorrion.numLegs
+
+    function Animal() { }
+    Animal.prototype.eat = function () {
+      console.log("Nom nom nom")
+    }
+
+
+    function Bird() { }
+    Bird.prototype = Object.create(Animal.prototype)
+    Bird.prototype.constructor = Bird;
+
+
+    Bird.prototype.fly = function () {
+      console.log("I'm Flying!")
+    }
+
+    let duck = new Bird()
+    duck.eat()
+    duck.fly()
+
+
+
+    // variable privada
+
+    function Clousure() {
+      let peso = 70
+
+      this.getPeso = function () {
+        return peso
+      }
+    }
+
+
+    // expresión de función inmediatamente invocada o IIFE(por sus siglas en inglés).
+    (function () {
+      console.log("expresión de función anónima, se ejecuta de inmediato")
+    })()
+
+
+    let metodo = (function () {
+      return {
+        volar: function (obj) {
+          obj.volando = function () {
+            return true
+          }
+        },
+        planear: function (obj) {
+          obj.planeando = function () {
+            console.log("estoy casi volando")
+          }
+        }
+      }
+
+    })()
+
+
+
+  </script>
+
+</body>
+
+</html>

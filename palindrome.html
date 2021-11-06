@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palíndromo</title>
+</head>
+
+<body>
+
+  <h1>Palíndromo</h1>
+  <script>
+    function palindrome(str) {
+      const newStr = str.replace(/[W_]/g, "").toLowerCase()
+      const strReverse = str.split("").reverse().join("")
+
+      return newStr === strReverse ? "Es palíndromo" : "No es palíndromo"
+    }
+
+    console.log(palindrome("oso"))
+    console.log(palindrome("casa"))
+    console.log(palindrome("Hola que tal"))
+    console.log(palindrome("aluna ese anula"))
+
+
+  </script>
+</body>
+
+</html>

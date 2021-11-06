@@ -14,42 +14,42 @@
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   <script>
-    const d = document
-    const API_URL = "https://jsonplaceholder.typicode.com/posts"
-    const API_URL_USERS = "https://jsonplaceholder.typicode.com/users"
-    const getPost = (idPost) => {
-      fetch(`${API_URL}/${idPost}`)
+    // const d = document
+    // const API_URL = "https://jsonplaceholder.typicode.com/posts"
+    // const API_URL_USERS = "https://jsonplaceholder.typicode.com/users"
+    // const getPost = (idPost) => {
+    //   fetch(`${API_URL}/${idPost}`)
 
-        .then(res => res.json())
-        .then(data => {
-          // console.log(data.id)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       // console.log(data.id)
 
-          fetch(`${API_URL_USERS}/${data.userId}`)
-            .then(res => res.json())
-            .then(user => {
-              console.log(user.name)
-            })
-        })
+    //       fetch(`${API_URL_USERS}/${data.userId}`)
+    //         .then(res => res.json())
+    //         .then(user => {
+    //           console.log(user.name)
+    //         })
+    //     })
 
-    }
-    getPost(90)
+    // }
+    // getPost(90)
 
     // ASYNC // AWAIT
 
-    const getNombreAsync = async (idPost) => {
-      try {
+    // const getNombreAsync = async (idPost) => {
+    //   try {
 
-        const resPost = await fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`)
-        const post = await resPost.json()
+    //     const resPost = await fetch(`https://jsonplaceholder.typicode.com/posts/${idPost}`)
+    //     const post = await resPost.json()
 
-        const resUser = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
-        const user = await resUser.json()
-        console.log(user.name)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getNombreAsync(50)
+    //     const resUser = await fetch(`https://jsonplaceholder.typicode.com/users/${post.userId}`)
+    //     const user = await resUser.json()
+    //     console.log(user.name)
+    //   } catch (error) {
+    //     console.log(error)
+    //   }
+    // }
+    // getNombreAsync(50)
 
     // AXIOS
 
@@ -57,7 +57,7 @@
       try {
         const resPostAxios = await axios(`https://jsonplaceholder.typicode.com/posts/${idPost}`)
         const resUsersAxios = await axios(`https://jsonplaceholder.typicode.com/users/${resPostAxios.data.userId}`)
-        console.log(resUsersAxios.data.name)
+        console.log(resUsersAxios)
       } catch (error) {
         console.log(error)
       }

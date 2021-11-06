@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primera letra a Mayúscula</title>
+</head>
+
+<body>
+
+
+
+  <script>
+
+    function toUpper(str) {
+      return str
+        .toLowerCase()
+        .split(' ')
+        .map(function (Word) {
+          return Word[0].toUpperCase() + Word.substr(1);
+        })
+        .join(' ');
+    }
+    console.log(toUpper("I'm a little tea pot"))
+
+  </script>
+</body>
+
+</html>
